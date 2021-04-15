@@ -25,7 +25,7 @@ const Post = ({ post }) => {
                 <Col xs="12" sm="7" md="8" lg="8">
                     <div className="card-body">
                         <ul className="post-category">
-                            {post.terms.nodes.map(node =>
+                            {post.terms?.nodes.map(node =>
                                 node.nodeType === 'Category' ? (
                                     <li key={node.id}>
                                         <small className="text-muted">{node.name}</small>
@@ -38,7 +38,7 @@ const Post = ({ post }) => {
                         </h2>
                         <div className="card-text mb-2">
                             {post.date ? (
-                                <small className="text-muted">{getFormattedDate(post.date)}</small>
+                                <small className="text-muted">{getFormattedDate(post?.date)}</small>
                             ) : null}
                         </div>
 
