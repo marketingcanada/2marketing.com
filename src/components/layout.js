@@ -1,13 +1,13 @@
-import PropTypes from "prop-types";
-import React from "react";
+import PropTypes from 'prop-types';
+import React from 'react';
 import { createGlobalStyle } from 'styled-components';
-import Footer from "./footer";
-import Header from "./header";
-import { useSiteGlobalCss } from "./particles/hooks/useSiteGlobalCss";
+import Footer from './footer';
+import Header from './header';
+import { useSiteGlobalCss } from './particles/hooks/useSiteGlobalCss';
 import Seo from './SEO/Seo';
 
 const GlobalStyles = createGlobalStyle`
-  ${props =>  props.settings ? props.settings : ''}
+  ${props => (props.settings ? props.settings : '')}
   .blog-read-me .btn-link, .blog-read-me .btn-link:hover{
     color: #44A754;
     padding-left: 0;
@@ -37,23 +37,23 @@ const GlobalStyles = createGlobalStyle`
       max-width: 84% !important;
     }
   }
-`
+`;
 
 const Layout = ({ children, seo }) => {
-  const globalCss = useSiteGlobalCss()
-  return (
-    <>
-      <GlobalStyles settings={globalCss} />
-      <Seo data={seo} />
-      <Header />
-        {children}
-      <Footer /> 
-    </>
-  )
-}
+    const globalCss = useSiteGlobalCss();
+    return (
+        <>
+            <GlobalStyles settings={globalCss} />
+            <Seo data={seo} />
+            <Header />
+            {children}
+            <Footer />
+        </>
+    );
+};
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-}
+    children: PropTypes.node.isRequired,
+};
 
-export default Layout
+export default Layout;

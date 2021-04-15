@@ -1,13 +1,14 @@
-import { graphql, useStaticQuery } from "gatsby"
+import { graphql, useStaticQuery } from 'gatsby';
+
 export const useSiteGlobalCss = () => {
-  const { wp } = useStaticQuery(
-    graphql`
-      query globalCssData {
-        wp {
-            globalCSS
-        }
-      }
-    `
-  )
-  return wp.globalCSS
-}
+    const { wp } = useStaticQuery(
+        graphql`
+            query globalCssData {
+                wp {
+                    globalCSS
+                }
+            }
+        `
+    );
+    return wp.globalCSS;
+};

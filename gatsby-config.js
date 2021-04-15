@@ -31,24 +31,24 @@ module.exports = {
                 name: `images`,
                 path: `${__dirname}/src/images`,
             },
-        },*/
+        }, */
         {
-            resolve: "gatsby-source-wordpress",
+            resolve: 'gatsby-source-wordpress',
             options: {
-              url: siteGraphql,
-              useACF: true,
-              html: {
-                useGatsbyImage: true,
-                createStaticFiles: true,
-              },
+                url: siteGraphql,
+                useACF: true,
+                html: {
+                    useGatsbyImage: true,
+                    createStaticFiles: true,
+                },
             },
         },
         {
             resolve: 'gatsby-plugin-react-svg',
             options: {
-              rule: {
-                include: /\.inline\.svg$/,
-              },
+                rule: {
+                    include: /\.inline\.svg$/,
+                },
             },
         },
         `gatsby-transformer-sharp`,

@@ -1,32 +1,32 @@
 import DOMPurify from 'dompurify';
-const dateFormat = require("dateformat");
+
+const dateFormat = require('dateformat');
 
 export const normalizePath = path => {
+    const pathStr = path.split('/');
 
-	const pathStr = path.split( '/');
+    // If the path ends with '/' get the second last item
+    if (path?.endsWith(`/`)) {
+        const strIndex = pathStr.length ? pathStr.length - 2 : '';
 
-	// If the path ends with '/' get the second last item
-	if ( path?.endsWith( `/` ) ) {
+        if (strIndex) {
+            // eslint-disable-next-line no-param-reassign
+            path = `/${pathStr[strIndex]}/`;
+        }
+    }
 
-		const strIndex = pathStr.length ? ( pathStr.length - 2 ) : '';
+    // If the path ends with '/' get the second last item.
+    if (!path?.endsWith(`/`)) {
+        const strIndex = pathStr.length ? pathStr.length - 1 : '';
 
-		if ( strIndex ) {
-			path = `/${ pathStr[ strIndex ] }/`
-		}
-	}
+        if (strIndex) {
+            // eslint-disable-next-line no-param-reassign
+            path = `/${pathStr[strIndex]}/`;
+        }
+    }
 
-	// If the path ends with '/' get the second last item.
-	if ( ! path?.endsWith( `/` ) ) {
-		const strIndex = pathStr.length ? ( pathStr.length - 1 ) : '';
-
-		if ( strIndex ) {
-			path = `/${ pathStr[ strIndex ] }/`
-		}
-	}
-
-	return path;
-
-}
+    return path;
+};
 /**
  * Get date in format of m-d-y
  *
@@ -34,15 +34,14 @@ export const normalizePath = path => {
  *
  * @return {string}
  */
-export const getFormattedDate = ( dateString ) => {
+export const getFormattedDate = dateString => {
+    if (!dateString) {
+        return '';
+    }
 
-	if ( ! dateString ) {
-		return '';
-	}
+    const date = new Date(dateString);
 
-	const date = new Date( dateString );
-
-	return dateFormat(date, "mmmm dS, yyyy");
+    return dateFormat(date, 'mmmm dS, yyyy');
 };
 
 /**
@@ -51,13 +50,13 @@ export const getFormattedDate = ( dateString ) => {
  * @param {String } targetString Target string.
  * @return {string} String with trailing slash removed.
  */
-export const removeTrailingSlash = ( targetString ) => {
-	if ( ! targetString ) {
-		return '';
-	}
+export const removeTrailingSlash = targetString => {
+    if (!targetString) {
+        return '';
+    }
 
-	return targetString.replace(/\/$/, "")
-}
+    return targetString.replace(/\/$/, '');
+};
 
 /**
  * Sanitize markup or text when used inside dangerouslysetInnerHTML
@@ -66,6 +65,4 @@ export const removeTrailingSlash = ( targetString ) => {
  *
  * @return {string} Sanitized string
  */
-export const sanitize = (content) => {
-	return process.browser ? DOMPurify.sanitize(content) : content
-}
+export const sanitize = content => (process.browser ? DOMPurify.sanitize(content) : content);

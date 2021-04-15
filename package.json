@@ -8,6 +8,8 @@
     "@charlietango/use-window-size": "^1.6.0",
     "@fontsource/poppins": "^4.2.2",
     "@fortawesome/fontawesome-free": "^5.15.3",
+    "@fortawesome/fontawesome-svg-core": "^1.2.35",
+    "@fortawesome/react-fontawesome": "^0.1.14",
     "babel-plugin-styled-components": "^1.12.0",
     "bootstrap": "4.6.0",
     "dateformat": "^4.5.1",
