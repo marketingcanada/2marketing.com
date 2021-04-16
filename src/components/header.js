@@ -44,8 +44,8 @@ const Header = () => {
                     <Logo />
                 </Link>
                 <NavbarToggler onClick={toggle} />
-                <Collapse isOpen={isOpen} navbar className="justify-content-center order-2">
-                    <Nav className="m-auto" navbar>
+                <Collapse isOpen={isOpen} navbar className="order-2">
+                    <Nav className="ml-auto" navbar>
                         {primaryMenu.map(item => (
                             <NavList item={item} key={item.id} />
                         ))}

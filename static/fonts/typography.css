@@ -1,0 +1,24 @@
+@font-face {
+  font-family: "Avenir Next Rounded Pro Medium";
+  src: url("./AvenirNextRoundedStd-Med.woff");
+}
+@font-face {
+  font-family: "Avenir Medium";
+  src: url("./Avenir\ LT\ 65\ Medium.ttf");
+}
+@font-face {
+  font-family: "Avenir Light";
+  src: url("./Avenir\ LT\ 35\ Light.ttf");
+}
+@font-face {
+  font-family: "Avenir Book";
+  src: url("./Avenir\ LT\ 45\ Book.ttf");
+}
+@font-face {
+  font-family: "Avenir Heavy";
+  src: url("./Avenir\ LT\ 85\ Heavy.ttf");
+}
+@font-face {
+  font-family: "Avenir Black";
+  src: url("./Avenir\ LT\ 95\ Black.ttf");
+}

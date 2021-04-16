@@ -14,6 +14,9 @@ module.exports = {
         author: `@ninjaMahabub`,
         siteUrl,
     },
+    flags: {
+        DEV_SSR: true,
+    },
     plugins: [
         // Simple config, passing URL
         {
@@ -24,14 +27,20 @@ module.exports = {
             },
         },
         `gatsby-plugin-react-helmet`,
-        /*
         {
-            resolve: `gatsby-source-filesystem`,
+            resolve: 'gatsby-plugin-web-font-loader',
             options: {
-                name: `images`,
-                path: `${__dirname}/src/images`,
+                google: {
+                    families: ['Caveat'],
+                },
+                custom: {
+                    families: [
+                        'Avenir Medium, Avenir Heavy, Avenir Book, Avenir Black, Avenir Next Rounded Pro Demi',
+                    ],
+                    urls: ['/fonts/typography.css'],
+                },
             },
-        }, */
+        },
         {
             resolve: 'gatsby-source-wordpress',
             options: {
@@ -77,8 +86,5 @@ module.exports = {
                 trackingId: googleAnalytics,
             },
         },
-        // this (optional) plugin enables Progressive Web App + Offline functionality
-        // To learn more, visit: https://gatsby.dev/offline
-        // `gatsby-plugin-offline`,
     ],
 };

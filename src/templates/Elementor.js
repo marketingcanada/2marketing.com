@@ -20,7 +20,7 @@ const ElementorTemplate = ({ pageContext }) => {
     const { modifiedData } = pageContext;
 
     const elementorData = modifiedData;
-    console.log(pageContext);
+    // console.log(pageContext);
     const Page = elementorData.map(row => (
         // console.log(row.settings)
 
@@ -51,7 +51,7 @@ const ElementorTemplate = ({ pageContext }) => {
                             >
                                 {column.elements.map(widget => {
                                     const elTypeSection = widget.elType === 'section';
-                                    // console.log(widget);
+                                    console.log(widget);
                                     if (elTypeSection) {
                                         return (
                                             <InnerSection
