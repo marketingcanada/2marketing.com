@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 const Iconwrap = styled.div`
@@ -34,24 +34,29 @@ const Iconwrap = styled.div`
 
 const Icon = settings => {
     // console.log({ settings });
-
     // eslint-disable-next-line camelcase
     const { selected_icon, link } = settings;
 
-    const Wrapper = ({ iconLink, children }) =>
-        iconLink ? (
-            <a href={iconLink} className="elementor-icon">
-                {children}
-            </a>
-        ) : (
-            <div className="elementor-icon">{children}</div>
-        );
+    const [hasLink, setHasLink] = useState();
+
+    useEffect(() => {
+        link.url
+            ? setHasLink(
+                  <a href={link.url} className="elementor-icon">
+                      <i className={selected_icon?.value || 'fas fa-star'} />
+                  </a>
+              )
+            : setHasLink(
+                  <div className="elementor-icon">
+                      <i className={selected_icon?.value || 'fas fa-star'} />
+                  </div>
+              );
+        // eslint-disable-next-line camelcase
+    }, [selected_icon, link.url]);
 
     return (
         <Iconwrap className="elementor-icon-wrapper" settings={settings}>
-            <Wrapper iconLink={link?.url || null}>
-                <p className={selected_icon?.value || 'fas fa-star'} />
-            </Wrapper>
+            {hasLink}
         </Iconwrap>
     );
 };

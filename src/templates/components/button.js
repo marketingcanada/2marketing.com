@@ -8,7 +8,7 @@ const ButtonElement = styled.a`
 
 const Button = settings => {
     const { text, link, size } = settings;
-    console.log(text);
+    // console.log(text);
     return (
         <ButtonElement
             // eslint-disable-next-line react/destructuring-assignment
